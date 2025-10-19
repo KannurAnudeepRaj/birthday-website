@@ -1,10 +1,10 @@
 // ----- CONFIG -----
 const password = "I love you GUPPI";
-const pdfPath = "gift/Devangi’s Star Certificate.pdf";
+const pdfPath = "gift/devangis-star-certificate.pdf";
 
 // Image lists (adjust counts/paths to match your folder)
-const images1 = Array.from({ length: 20 }, (_, i) => `images/Image(${i + 1}).jpg`);
-const images2 = Array.from({ length: 20 }, (_, i) => `images/Image(${i + 21}).jpg`);
+const images1 = Array.from({ length: 20 }, (_, i) => `images/Image-${i + 1}.jpg`);
+const images2 = Array.from({ length: 20 }, (_, i) => `images/Image-${i + 21}.jpg`);
 
 // ----- UTILITIES -----
 function shuffleArray(arr) {
