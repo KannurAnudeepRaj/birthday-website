@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Devangi's Delight</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts for cool bold effect -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Liquid glass header -->
+  <header class="glass-header">
+    <h1 class="delight-logo">Devangi's Delight</h1>
+  </header>
+
+  <main>
+    <!-- Photo Section 1 -->
+    <section class="photos-section" id="photos-1"></section>
+    
+    <!-- Song Player Section -->
+    <section class="song-section">
+      <h2 class="song-title">Your Special Song</h2>
+      <audio controls>
+        <source src="music/song.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+    </section>
+    
+    <!-- Photo Section 2 -->
+    <section class="photos-section" id="photos-2"></section>
+
+    <!-- Message Section -->
+    <section class="message-section">
+      <h2>My Message to You</h2>
+      <p class="birthday-message">
+        <!-- Paste your message here -->
+        Happy Birthday Devangi! Your smile lights up every room and today the world celebrates YOU. Thank you for filling my life with laughter, kindness, and love. Wishing you joy and laughter always, and today’s secret surprise is just a tiny part of all the wonder you deserve.
+      </p>
+    </section>
+    
+    <!-- Secret Surprise Section -->
+    <section class="surprise-section">
+      <h3>I want you to go upstairs to receive your gift</h3>
+      <label for="password-input">Enter the secret password to unlock your birthday surprise:</label>
+      <input type="password" id="password-input" placeholder="Enter password">
+      <button id="unlock-btn">Unlock</button>
+      <p id="unlock-message" class="unlock-message"></p>
+    </section>
+  </main>
+  
+  <script src="script.js"></script>
+</body>
+</html>

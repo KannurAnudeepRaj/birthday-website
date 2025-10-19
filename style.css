@@ -1,0 +1,207 @@
+/* Reset & Base */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #fff;
+  color: #222;
+  min-height: 100vh;
+}
+
+/* Liquid glass header */
+.glass-header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px) saturate(180%);
+  border-bottom: 1.5px solid rgba(203,30,57,0.11);
+  box-shadow: 0 2px 16px 0 rgba(203,30,57,0.09), 0 1.5px 0.5px 0 rgba(218,165,32,0.13);
+  z-index: 99;
+  text-align: center;
+  padding: 2.5rem 0 1.3rem 0;
+}
+
+.delight-logo {
+  font-family: 'Satisfy', 'Montserrat', cursive;
+  font-size: 3rem;
+  letter-spacing: 2.5px;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(90deg, #cb1e39 0 38%, #fff 38% 82%, #daa520 82% 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 8px rgba(203,30,57,0.33))
+          drop-shadow(0 0px 4.5px #daa520aa);
+  margin: 0 auto;
+}
+
+/* Main Layout */
+main {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 0 1vw 2rem 1vw;
+}
+
+/* Photo Galleries */
+.photos-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Gallery image ENTRY, EFFECTS, ANIMATION */
+.gallery-img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border: 3px solid #da2c38ca;
+  border-radius: 18px;
+  box-shadow: 0 3px 22px -3px #daa52044, 0 1px 6px -2px #cb1e3980;
+  background: linear-gradient(125deg,#fff 40%,#cb1e39a8 90%,#daa52013 100%);
+  opacity: 0;
+  transform: scale(0.88) translateY(20px) rotate(-4deg);
+  animation: fadeInDrift 1.35s cubic-bezier(.44,.16,.46,1.19) forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+.gallery-img:hover {
+  transform: scale(1.06) rotate(-1.5deg);
+  box-shadow: 0 8px 26px -3px #cb1e3977, 0 2px 12px -2px #daa52084;
+  border-color: #daa520ee;
+  transition: all 0.4s cubic-bezier(.65,.06,.47,1);
+}
+
+/* Floating/Drifting subtle effect */
+@keyframes floatGallery {
+  0%   { transform: translateY(0) scale(1) rotate(0deg);}
+  30%  { transform: translateY(-11px) scale(1.03) rotate(1.6deg);}
+  60%  { transform: translateY(5px) scale(0.99) rotate(-1.5deg);}
+  100% { transform: translateY(0) scale(1) rotate(0deg);}
+}
+
+/* Fade-in effect */
+@keyframes fadeInDrift {
+  0% { opacity: 0; transform: scale(0.88) translateY(20px) rotate(-4deg); }
+  60% { opacity: 1; }
+  100% { opacity: 1; transform: scale(1) translateY(0) rotate(var(--rot, 0deg)); }
+}
+
+/* Song Player Section */
+.song-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.6rem;
+}
+.song-title {
+  padding: 0 0 0.7rem 0;
+  color: #cb1e39;
+  font-size: 1.15rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+audio {
+  width: 320px;
+  max-width: 95vw;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 12px -3px #daa52044;
+}
+
+/* Message Section */
+.message-section {
+  padding: 2rem 1vw 2rem 1vw;
+  background: rgba(255,255,255,0.96);
+  border-radius: 18px;
+  box-shadow: 0 10px 24px -6px #daa52044;
+  margin-bottom: 2.5rem;
+  border: 1.2px solid #daa52035;
+}
+
+.birthday-message {
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: #cb1e39;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  margin-top: 0.7rem;
+}
+
+.message-section h2 {
+  color: #daa520;
+  font-family: 'Satisfy', cursive;
+  font-size: 1.42rem;
+}
+
+/* Secret Surprise Section */
+.surprise-section {
+  text-align: center;
+  padding: 2.5rem 0 1.8rem 0;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.89);
+  box-shadow: 0 8px 18px -6px #cb1e3944;
+  border: 1.5px solid #daa52029;
+}
+
+.surprise-section h3 {
+  color: #cb1e39;
+  font-size: 1.22rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-bottom: 1.3rem;
+}
+
+.surprise-section label {
+  font-size: 1rem;
+  color: #daa520;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+#password-input {
+  padding: 0.5rem 1rem;
+  border-radius: 11px;
+  border: 2.1px solid #cb1e39;
+  font-size: 1.07rem;
+  outline: none;
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+  background: #fff;
+  font-family: 'Montserrat', sans-serif;
+  transition: border-color 0.23s cubic-bezier(.64,.01,.47,1);
+}
+#password-input:focus, #password-input:hover {
+  border-color: #daa520;
+}
+
+#unlock-btn {
+  padding: 0.6rem 1.4rem;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(98deg,#cb1e39 55%,#daa520 100%);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 16px -4px #daa52044;
+  transition: background 0.23s cubic-bezier(.65,.06,.47,1);
+}
+
+#unlock-btn:hover {
+  background: linear-gradient(98deg,#daa520 10%,#cb1e39 100%);
+}
+
+.unlock-message {
+  font-size: 1.12rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  letter-spacing: 0.7px;
+  min-height: 1.3em;
+}
