@@ -1,74 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Devangi's Delight</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts for cool bold effect -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Satisfy&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Happy Birthday Devangi</title>
+
+  <!-- Fonts: clean sans + friendly display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Satisfy&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <meta name="color-scheme" content="light only" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
-  <!-- Liquid glass header -->
+
+  <!-- Sticky, monochrome header -->
   <header class="glass-header">
-    <h1 class="delight-logo">Devangi's Delight</h1>
+    <h1 class="delight-logo">Devangi</h1>
   </header>
 
   <main>
-    <!-- Photo Section 1 -->
-    <section class="photos-section" id="photos-1"></section>
-    
-    <!-- Song Player Section -->
-    <section class="song-section">
-      <h2 class="song-title">Your Special Song</h2>
-      <audio controls>
-        <source src="music/song.mp3" type="audio/mp3">
+
+    <!-- Mobile-first hero -->
+    <section class="hero-section" aria-labelledby="hero-title" style="text-align:center; padding:28px 10px 18px;">
+      <h2 id="hero-title" class="hero-title" style="margin:0; font-family:'Satisfy', Inter, system-ui, sans-serif; font-weight:800; letter-spacing:.4px; font-size:28px; color:#111;">
+        Happy Birthday Devangi
+      </h2>
+      <p class="hero-sub" style="margin:10px auto 0; max-width:36ch; font-size:14.5px; color:#333;">
+        Wishing you a day as lovely and bright as you are.
+      </p>
+    </section>
+
+    <!-- Photos grid (filled by script.js) -->
+    <section aria-labelledby="photos-title-1">
+      <h3 id="photos-title-1">Photos</h3>
+      <div id="photos1" class="photos-section" role="list"></div>
+    </section>
+
+    <section aria-labelledby="photos-title-2">
+      <h3 id="photos-title-2" class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">More Photos</h3>
+      <div id="photos2" class="photos-section" role="list"></div>
+    </section>
+
+    <!-- Song -->
+    <section class="song-section" aria-labelledby="song-title">
+      <h3 id="song-title" class="song-title">Your Song</h3>
+      <audio controls preload="none">
+        <source src="audio/135278.mp3" type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
     </section>
-    
-    <!-- Photo Section 2 -->
-    <section class="photos-section" id="photos-2"></section>
 
-    <!-- Message Section -->
-    <section class="message-section">
-      <h2>My Message to You</h2>
-      <p class="birthday-message">
-        <!-- Paste your message here -->
-        There is someone I think about often, someone who has a way of showing up in my mind even when she doesn’t know it. At first, I didn’t know what it was just a feeling that some days seemed brighter because of a few messages, a laugh, or a small word she shared. There’s something about the way she exists that makes ordinary moments feel heavier with meaning, like everything around her suddenly has color. I catch myself noticing things I never did before: a song that makes me smile, a line from a movie that reminds me of her, a quiet moment that feels alive because she crossed my mind.
-
-I’ve realized that she has changed me in ways I didn’t even know I needed. Her honesty, the way she speaks her mind, the little things she shares without even thinking they all stay with me. I find myself wanting to remember every word, every laugh, every pause. She has a way of making someone feel seen without even trying, and I’ve felt that deeply, quietly, and persistently.
-
-I know my place. I know I am not her boyfriend, and I know I should respect boundaries. I am not here to demand her attention or change her heart in any way. I understand that she has feelings for someone, and I am not saying that is wrong. I am not trying to step in where I shouldn’t. But I cannot stay silent about how I feel, because what I feel is real and cannot be ignored.
-
-We met online a couple of months ago, around mid-August, and in such a short time, the bond we’ve created has become one of the most meaningful things in my life. Those long conversations, the jokes only we understand, the quiet moments when it felt like I could be completely myself—I carry all of that with me. You’ve made even the simplest things feel special, and I notice every little detail about you.
-
-It hurts me sometimes when you say that nobody treats you well, because I see you. I see your kindness, your warmth, your heart. I treat you well, not because I expect anything in return, but because you matter, and I want you to feel that. I wish I could make you understand how much you mean to someone, how much impact you’ve already had.
-
-I love the way you think, the way you laugh, the way you care about the people around you. I love that you are brave even when you’re unsure, that you try even when it’s hard, that you bring light into conversations without even realizing it. I love that our bond has grown so fast yet feels so natural, like it was meant to happen.
-
-I respect everything about you—your feelings, your choices, your heart. I am not trying to replace anyone in your life. I only want to be someone who cares deeply and openly, someone who shows you that you are seen, that you are valued, that you are loved in a way that is steady and true.
-
-I don’t want you to feel down today. Today is your birthday, your day, a day that belongs entirely to you. I hope you feel celebrated, appreciated, and loved—not only by the people around you but also by yourself. I hope you let yourself smile, let yourself feel the happiness you deserve, and let yourself be wrapped in the warmth that comes from being noticed and cherished.
-
-I have tried to find the words that can fully express how I feel, but even this letter will fall short. I want you to know that my feelings are honest, unshakable, and unconditional. I am here, quietly and respectfully loving you, hoping that you feel safe, happy, and cherished always.
-
-And now I want to say it clearly: Devangi, it’s you. It has always been you in my thoughts, in my moments of quiet, in the little ways I notice beauty in the world. You are the person who made the ordinary feel extraordinary, who made laughter sweeter, who made connection feel real. I am grateful for you, for your presence, and for the bond we’ve built in these short but meaningful months.
-
-Happy Birthday, Devangi. I love you.
-      </p>
+    <!-- Message -->
+    <section class="message-section" aria-labelledby="msg-title">
+      <h3 id="msg-title">My Message to You</h3>
+      <div class="birthday-message">
+        <p>
+          There is someone I think about often, someone who has a way of showing up in my mind even when she doesn’t know it. At first, I didn’t know what it was just a feeling that some days seemed brighter because of a few messages, a laugh, or a small word she shared. There’s something about the way she exists that makes ordinary moments feel heavier with meaning, like everything around her suddenly has color. I catch myself noticing things I never did before: a song that makes me smile, a line from a movie that reminds me of her, a quiet moment that feels alive because she crossed my mind.
+        </p>
+        <p>
+          I’ve realized that she has changed me in ways I didn’t even know I needed. Her honesty, the way she speaks her mind, the little things she shares without even thinking they all stay with me. I find myself wanting to remember every word, every laugh, every pause. She has a way of making someone feel seen without even trying, and I’ve felt that deeply, quietly, and persistently.
+        </p>
+        <p>
+          I know my place. I know I am not her boyfriend, and I know I should respect boundaries. I am not here to demand her attention or change her heart in any way. I understand that she has feelings for someone, and I am not saying that is wrong. I am not trying to step in where I shouldn’t. But I cannot stay silent about how I feel, because what I feel is real and cannot be ignored.
+        </p>
+        <p>
+            We met online a couple of months ago, around mid-August, and in such a short time, the bond we’ve created has become one of the most meaningful things in my life. Those long conversations, the jokes only we understand, the quiet moments when it felt like I could be completely myself—I carry all of that with me. You’ve made even the simplest things feel special, and I notice every little detail about you.
+        </p>
+        <p>
+            It hurts me sometimes when you say that nobody treats you well, because I see you. I see your kindness, your warmth, your heart. I treat you well, not because I expect anything in return, but because you matter, and I want you to feel that. I wish I could make you understand how much you mean to someone, how much impact you’ve already had.
+        </p>
+        <p>
+            I love the way you think, the way you laugh, the way you care about the people around you. I love that you are brave even when you’re unsure, that you try even when it’s hard, that you bring light into conversations without even realizing it. I love that our bond has grown so fast yet feels so natural, like it was meant to happen.
+        </p>
+        <p>
+            I respect everything about you, your feelings, your choices, your heart. I am not trying to replace anyone in your life. I only want to be someone who cares deeply and openly, someone who shows you that you are seen, that you are valued, that you are loved in a way that is steady and true.
+        </p>
+        <p>
+            I don’t want you to feel down today. Today is your birthday, your day, a day that belongs entirely to you. I hope you feel celebrated, appreciated, and loved, not only by the people around you but also by yourself. I hope you let yourself smile, let yourself feel the happiness you deserve, and let yourself be wrapped in the warmth that comes from being noticed and cherished.
+        </p>
+        <p>
+            I have tried to find the words that can fully express how I feel, but even this letter will fall short. I want you to know that my feelings are honest, unshakable, and unconditional. I am here, quietly and respectfully loving you, hoping that you feel safe, happy, and cherished always.
+        </p>
+        <p>
+            And now I want to say it clearly: Devangi, it’s you. It has always been you in my thoughts, in my moments of quiet, in the little ways I notice beauty in the world. You are the person who made the ordinary feel extraordinary, who made laughter sweeter, who made connection feel real. I am grateful for you, for your presence, and for the bond we’ve built in these short but meaningful months.
+        </p>
+        <p>
+            Happy Birthday, Devangi. I love you.
+        </p>
+        </div>
     </section>
-    
-    <!-- Secret Surprise Section -->
-    <section class="surprise-section">
-      <h3>I want you to go upstairs to receive your gift</h3>
-      <label for="password-input">Enter the secret password to unlock your birthday surprise:</label>
-      <input type="password" id="password-input" placeholder="Enter password">
-      <button id="unlock-btn">Unlock</button>
-      <p id="unlock-message" class="unlock-message"></p>
+
+    <!-- Surprise (password -> gift) -->
+    <section class="surprise-section" aria-labelledby="surprise-title">
+      <h3 id="surprise-title">Surprise</h3>
+      <label for="password-input">Enter the password</label>
+      <input id="password-input" type="password" inputmode="text" autocomplete="off" placeholder="Type here..." />
+      <button id="unlock-btn" type="button">Unlock</button>
+      <div id="unlock-message" class="unlock-message" aria-live="polite"></div>
     </section>
+
   </main>
-  
-  <script src="script.js"></script>
+
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+  <script>
+    // Accessibility: prefers-reduced-motion disables float swaps if you add them later
+    document.documentElement.classList.toggle(
+      'reduced-motion',
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    );
+  </script>
 </body>
 </html>

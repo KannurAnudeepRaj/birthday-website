@@ -1,64 +1,136 @@
 // ----- CONFIG -----
-const password = "I love you Mirru";
-const pdfPath = "gift/birthday-gift.pdf";
+const password = "I love you GUPPI";
+const pdfPath = "gift/Devangi’s Star Certificate.pdf";
 
-// Array of images (20 in each section, filenames: Image(1).jpg ... Image(40).jpg)
+// Image lists (adjust counts/paths to match your folder)
 const images1 = Array.from({ length: 20 }, (_, i) => `images/Image(${i + 1}).jpg`);
 const images2 = Array.from({ length: 20 }, (_, i) => `images/Image(${i + 21}).jpg`);
 
-// Fisher-Yates shuffle for full randomness
+// ----- UTILITIES -----
 function shuffleArray(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+    [a[i], a[j]] = [a[j], a[i]];
   }
-  return arr;
+  return a;
 }
 
+// ----- GALLERY RENDERING -----
+// Renders a set of images into a container, with staggered delay for CSS fade-in
 function displayImages(sectionId, images) {
   const container = document.getElementById(sectionId);
+  if (!container) return;
+
   const shuffled = shuffleArray(images);
+  container.innerHTML = "";
   shuffled.forEach((src, idx) => {
-    const img = document.createElement('img');
+    const img = document.createElement("img");
     img.src = src;
-    img.classList.add('gallery-img');
-    img.alt = "Devangi photo";
-    // Fade-in with random delay
-    const delay = 130 * idx + Math.floor(Math.random() * 100); // in ms
-    img.style.setProperty('--delay', `${delay}ms`);
-    // Drift animation with random rotate and stagger
-    const rot = (Math.random() * 7 - 4).toFixed(2); // -4deg to +3deg
-    img.style.setProperty('--rot', `${rot}deg`);
-    img.style.animation = `fadeInDrift 1.2s cubic-bezier(.44,.16,.46,1.19) ${delay}ms forwards, floatGallery ${5.6 + Math.random()*2.5}s ${0.8 + Math.random()*2.5}s infinite ease-in-out`;
+    img.className = "gallery-img";
+    img.alt = "Photo";
+    const delay = 120 * idx + Math.floor(Math.random() * 120);
+    img.style.setProperty("--delay", `${delay}ms`);
     container.appendChild(img);
   });
 }
 
-// Display photo galleries after DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  displayImages('photos-1', images1);
-  displayImages('photos-2', images2);
-});
+// ----- OPTIONAL: PERIODIC RESHUFFLE (swap all tiles every N seconds) -----
+function reshuffleGrid(sectionId, images, intervalMs = 7000) {
+  const container = document.getElementById(sectionId);
+  if (!container) return;
 
-// PASSWORD/SECRET SURPRISE LOGIC
-document.getElementById('unlock-btn').addEventListener('click', function() {
-  const input = document.getElementById('password-input').value.trim();
-  const msg = document.getElementById('unlock-message');
-  msg.textContent = "";
-  if (input === password) {
-    msg.style.color = '#198754'; // green
-    msg.textContent = "Password correct! Your gift will download now…";
+  let pool = shuffleArray(images);
+
+  function swapAll() {
+    const tiles = container.querySelectorAll(".gallery-img");
+    if (!tiles.length) return;
+
+    if (pool.length < tiles.length) pool = shuffleArray(images);
+    const next = pool.splice(0, tiles.length);
+
+    tiles.forEach((img, i) => {
+      img.style.transition = "opacity 260ms ease";
+      img.style.opacity = "0";
+      setTimeout(() => {
+        img.src = next[i];
+        img.style.opacity = "1";
+      }, 200);
+    });
+  }
+
+  return setInterval(swapAll, intervalMs);
+}
+
+// ----- OPTIONAL: RANDOM SINGLE TILE SWAP (drip-feed motion) -----
+function randomSwap(sectionId, images, intervalMs = 1800) {
+  const container = document.getElementById(sectionId);
+  if (!container) return;
+
+  let pool = shuffleArray(images);
+
+  function swapOne() {
+    const tiles = container.querySelectorAll(".gallery-img");
+    if (!tiles.length) return;
+
+    if (!pool.length) pool = shuffleArray(images);
+    const idx = Math.floor(Math.random() * tiles.length);
+    const img = tiles[idx];
+    const next = pool.pop();
+
+    img.style.transition = "opacity 220ms ease";
+    img.style.opacity = "0";
     setTimeout(() => {
-      window.location.href = pdfPath;
-    }, 1200);
-  } else {
-    msg.style.color = '#B22222'; // red
-    msg.textContent = "Sorry, that password is incorrect.";
+      img.src = next;
+      img.style.opacity = "1";
+    }, 180);
   }
-});
 
-document.getElementById('password-input').addEventListener('keydown', function(e) {
-  if (e.key === "Enter") {
-    document.getElementById('unlock-btn').click();
+  return setInterval(swapOne, intervalMs);
+}
+
+// ----- SURPRISE: PASSWORD LOGIC -----
+function setupPassword() {
+  const input = document.getElementById("password-input");
+  const btn = document.getElementById("unlock-btn");
+  const msg = document.getElementById("unlock-message");
+  if (!input || !btn || !msg) return;
+
+  function tryUnlock() {
+    const val = (input.value || "").trim();
+    if (val === password) {
+      msg.style.color = "#111111";
+      msg.textContent = "Password correct! Your gift will download now…";
+      setTimeout(() => {
+        window.location.href = pdfPath;
+      }, 1000);
+    } else {
+      msg.style.color = "#111111";
+      msg.textContent = "Sorry, that password is incorrect.";
+    }
   }
+
+  btn.addEventListener("click", tryUnlock);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") tryUnlock();
+  });
+}
+
+// ----- INIT -----
+document.addEventListener("DOMContentLoaded", () => {
+  // Initial grids
+  displayImages("photos1", images1);
+  displayImages("photos2", images2);
+
+  // Choose ONE of the behaviors below:
+  // A) Periodic full reshuffle
+  // const t1 = reshuffleGrid("photos1", images1, 7000);
+  // const t2 = reshuffleGrid("photos2", images2, 7000);
+
+  // B) Random single-tile swap (more subtle)
+  const r1 = randomSwap("photos1", images1, 1800);
+  const r2 = randomSwap("photos2", images2, 1800);
+
+  // Password handler
+  setupPassword();
 });
